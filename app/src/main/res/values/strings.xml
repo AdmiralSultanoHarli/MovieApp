@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Movie App</string>
+    <string name="text_no_connectivity">No Connection</string>
+    <string name="text_connectivity">Back Online</string>
+
+    <string name="series">Series</string>
+    <string name="movie">Movie</string>
+
+</resources>

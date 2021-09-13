@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        tools:context=".ui.home.HomeActivity">
+
+        <LinearLayout
+            android:id="@+id/networkStatusLayout"
+            style="@style/StatusView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorStatusNotConnected"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textViewNetworkStatus"
+                style="@style/StatusTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/text_no_connectivity" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_error"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/image_error"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/ic_not_found"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/text_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/calibri"
+                android:layout_below="@+id/image_error"
+                android:text="Welcome! Do a search"
+                android:layout_centerInParent="true"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_progress"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <include
+                        layout="@layout/list_item_movie_place_holder"/>
+
+                    <include
+                        layout="@layout/list_item_movie_place_holder"/>
+
+                    <include
+                        layout="@layout/list_item_movie_place_holder"/>
+
+                    <include
+                        layout="@layout/list_item_movie_place_holder"/>
+
+                    <include
+                        layout="@layout/list_item_movie_place_holder"/>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_movies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/networkStatusLayout"
+            tools:listitem="@layout/list_item_movie" />
+
+        <LinearLayout
+            android:id="@+id/linear_layout_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioGroup
+                android:id="@+id/search_radio_roup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/radio_movies"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchEditText">
+
+                <RadioButton
+                    android:id="@+id/radio_movies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/movie"
+                    android:buttonTint="@color/colorPrimaryDark"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_series"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/series"
+                    android:buttonTint="@color/colorPrimaryDark"
+                    android:textSize="16sp" />
+
+            </RadioGroup>
+
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/ic_cinema" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/calibri"
+                android:text="Welcome! Do a search"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
